@@ -19,3 +19,8 @@
 {
     border:2px solid green
 }
+
+.card{
+    position: relative;
+    left: 10%;
+}

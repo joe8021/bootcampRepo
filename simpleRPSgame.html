@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="game">
+        <p id="directions-text"> Press s to Start the game</p>
+        <p id="userguess-text"></p>
+        <p id="computerguess-text"></p>
+        <p id="wins-text"></p>
+        <p id="losses-text"></p>
+        <p id="ties-text"></p>
+    </div>
+
+    <script type="text/javascript">
+
+        var computerChoices = ['r','p','s'];
+
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+        var directionsText = document.getElementById("directions-text");
+        var userGuessText = document.getElementById("userguess-text");
+        var computerGuessText = document.getElementById("computerguess-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+
+        document.onkeyup = function(event){
+            var userGuess = event.key;
+            console.log(userGuess); 
+
+            var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            console.log(compGuess);
+
+            if((userGuess==='r')||(userGuess==='s')||(userGuess==='p')){
+                if((userGuess==='p' && compGuess==='r') || 
+                (userGuess==='r' && compGuess==='s') || 
+                (userGuess==='s' && compGuess==='p')){
+                    wins++;
+                    //console.log("wins" + wins);
+                }
+                else if(userGuess === compGuess){
+                    ties++;
+                } else{
+                    losses++;
+                }  
+            } else {
+                alert("Please choose r, s, or p")
+            }
+
+            directionsText.textContent = "";
+
+            userGuessText.textContent = "You chose:" + userGuess;
+            computerGuessText.textContent = "Computer chose:" + compGuess;
+            winsText.textContent = "Wins: " + wins;
+            lossesText.textContent = "Losses: " + losses;
+            tiesText.textContent = "Ties: " + ties;
+
+        }
+
+    
+    </script>
+  
+</body>
+</html>

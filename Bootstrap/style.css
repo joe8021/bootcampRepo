@@ -1,0 +1,15 @@
+.about{
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.container{
+    background-color: lightgray;
+    opacity: 0.9;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.bodyB{
+    background-color: rgb(207, 228, 235);
+}
